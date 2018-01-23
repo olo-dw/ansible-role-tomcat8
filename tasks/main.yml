@@ -25,3 +25,18 @@
     enabled: yes
 
 - include_tasks: default.yml
+
+- name: Ensure systemd service is installed.
+  become: true
+  template:
+    src:  "tomcat8.service.j2"
+    dest: "/lib/systemd/system/{{ tomcat_name }}.service"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Ensure systemd service is configured.
+  file:
+    src: "/lib/systemd/system/{{ tomcat_name }}.service"
+    dest: "/etc/systemd/system/{{ tomcat_name }}.service"
+    state: link
