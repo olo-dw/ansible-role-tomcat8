@@ -1,0 +1,13 @@
+---
+- name: Ensure group {{ tomcat_group }} is present.
+  group:
+    name: "{{ tomcat_group }}"
+    state: present
+
+- name: Ensure user {{ tomcat_user }} is present.
+  user:
+    name: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
+    home: "{{ tomcat_home }}"
+    createhome: no
+    state: present
