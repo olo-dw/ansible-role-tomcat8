@@ -16,3 +16,8 @@
     state: present
     update_cache: yes
     cache_valid_time: "{{ tomcat_cache_valid_time }}"
+
+- name: Ensure {{ tomcat_service_name }} service is enabled.
+  service:
+    name: "{{ tomcat_service_name }}"
+    enabled: yes
