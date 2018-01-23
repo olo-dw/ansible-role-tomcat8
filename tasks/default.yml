@@ -1,0 +1,14 @@
+---
+- name: Default - Ensure tomcat user is configured.
+  lineinfile:
+    dest: "/etc/default/{{ tomcat_name }}"
+    line: "TOMCAT8_USER={{ tomcat_user }}"
+    regexp: '^TOMCAT8_USER=.*$'
+    backrefs: yes
+
+- name: Default - Ensure tomcat group is configured.
+  lineinfile:
+    dest: "/etc/default/{{ tomcat_name }}"
+    line: "TOMCAT8_GROUP={{ tomcat_group }}"
+    regexp: '^TOMCAT8_GROUP=.*$'
+    backrefs: yes
