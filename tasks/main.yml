@@ -9,3 +9,10 @@
     name: "{{ tomcat_user }}"
     group: "{{ tomcat_group }}"
     state: present
+
+- name: Ensure {{ tomcat_name }} package is installed.
+  apt:
+    name: "{{ tomcat_name }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: "{{ tomcat_cache_valid_time }}"
