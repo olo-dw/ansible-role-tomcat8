@@ -1,0 +1,5 @@
+---
+tomcat_name: 'tomcat8'
+
+tomcat_user: "{{ tomcat_name }}"
+tomcat_group: "{{ tomcat_user }}"
