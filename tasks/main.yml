@@ -38,3 +38,21 @@
     src: "/lib/systemd/system/{{ tomcat_name }}.service"
     dest: "/etc/systemd/system/{{ tomcat_name }}.service"
     state: link
+
+- name: Ensure tomcat configuration is linked in the home.
+  file:
+    src: "/etc/{{ tomcat_name }}"
+    dest: "{{ tomcat_base }}/conf"
+    state: link
+
+- name: Ensure tomcat logs are linked in the home.
+  file:
+    src: "/var/log/{{ tomcat_name }}"
+    dest: "{{ tomcat_base }}/logs"
+    state: link
+
+- name: Ensure tomcat temp is linked in the home.
+  file:
+    src: "/var/cache/{{ tomcat_name }}"
+    dest: "{{ tomcat_base }}/temp"
+    state: link
