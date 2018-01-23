@@ -1,0 +1,14 @@
+[Unit]
+Description={{ tomcat_service_name }} server
+After=syslog.target
+
+[Service]
+Type=simple
+User={{ tomcat_user }}
+Group={{ tomcat_group }}
+ExecStart={{ tomcat_base }}/bin/startup.sh
+ExecStop={{ tomcat_base }}/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+
