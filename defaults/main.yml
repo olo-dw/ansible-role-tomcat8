@@ -3,3 +3,6 @@ tomcat_name: 'tomcat8'
 
 tomcat_user: "{{ tomcat_name }}"
 tomcat_group: "{{ tomcat_user }}"
+
+# Advanced options
+tomcat_cache_valid_time: 3600
