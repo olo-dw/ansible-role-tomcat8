@@ -23,3 +23,5 @@
   service:
     name: "{{ tomcat_service_name }}"
     enabled: yes
+
+- include_tasks: default.yml
