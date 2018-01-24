@@ -4,6 +4,7 @@ Ansible role to install tomcat8
 ## Prerequisites
 
 * Java 7+
+* libservlet3.1-java
 
 ## Usage
 
@@ -15,10 +16,16 @@ Ansible role to install tomcat8
     - name: Tomcat servers installation
       hosts: tomcat-servers
       roles:
-      - role: ansible-role-java
-        java_packages:
-        - openjdk-8-jdk
       - role: ansible-role-tomcat8
+        tomcat_extra_packages:
+        - openjdk-8-jdk
+        - libservlet3.1-java
+
+## Advanced Options
+
+**tomcat_extra_packages**: If you want to add some extra packages, especially libservlet3.1-java.
+
+**tomcat_cache_valid_time**: 3600 - Update the apt cache if its older than this value in seconds.
 
 ## License
 

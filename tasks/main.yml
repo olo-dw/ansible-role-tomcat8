@@ -12,10 +12,13 @@
 
 - name: Ensure {{ tomcat_name }} package is installed.
   apt:
-    name: "{{ tomcat_name }}"
+    name: "{{ item }}"
     state: present
     update_cache: yes
     cache_valid_time: "{{ tomcat_cache_valid_time }}"
+  with_items:
+  - "{{ tomcat_name }}"
+  - "{{ tomcat_extra_packages | default([]) }}"
 
 - name: Ensure {{ tomcat_service_name }} service is enabled.
   service:
