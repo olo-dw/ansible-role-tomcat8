@@ -4,8 +4,8 @@ tomcat_name: 'tomcat8'
 tomcat_user: "{{ tomcat_name }}"
 tomcat_group: "{{ tomcat_user }}"
 tomcat_service_name: "{{ tomcat_name }}"
-tomcat_base: "/usr/share/{{ tomcat_name }}"
 tomcat_home: "/var/lib/{{ tomcat_name }}"
+tomcat_catalina_home: "/usr/share/{{ tomcat_name }}"
 
 # Advanced options
 tomcat_cache_valid_time: 3600
