@@ -42,17 +42,17 @@
 - name: Ensure tomcat configuration is linked in the home.
   file:
     src: "/etc/{{ tomcat_name }}"
-    dest: "{{ tomcat_base }}/conf"
+    dest: "{{ tomcat_catalina_home }}/conf"
     state: link
 
 - name: Ensure tomcat logs are linked in the home.
   file:
     src: "/var/log/{{ tomcat_name }}"
-    dest: "{{ tomcat_base }}/logs"
+    dest: "{{ tomcat_catalina_home }}/logs"
     state: link
 
 - name: Ensure tomcat temp is linked in the home.
   file:
     src: "/var/cache/{{ tomcat_name }}"
-    dest: "{{ tomcat_base }}/temp"
+    dest: "{{ tomcat_catalina_home }}/temp"
     state: link
